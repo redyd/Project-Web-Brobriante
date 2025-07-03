@@ -1,0 +1,295 @@
+@use "../base/variables" as var;
+
+/// Permet de centrer une frame et d'appliquer des marges.
+/// La classe `.center` applique une marge définie par la variable `$width-margin`
+/// et centre le contenu textuellement.
+///
+/// @group layout/frame
+/// @example html
+/// <section class="center">
+///   <p>Contenu centré</p>
+/// </section>
+.center {
+  margin: var.$width-margin;
+  text-align: center;
+}
+
+/// Applique un espace spécifique en dessous d'une frame.
+/// La classe `.space` ajoute une marge inférieure définie par la variable `$space-btw-sect`
+/// pour espacer les sections ou autres éléments contigus.
+///
+/// @group layout/frame
+/// @example html
+/// <section class="space">
+///   <p>Contenu avec un espace en bas</p>
+/// </section>
+.space {
+  margin-bottom: var.$space-btw-sect;
+}
+
+/// Permet de réajuster les marges entre un titre h2 et son blockquote.
+/// Cette classe est à utiliser sur une frame (comme une section) pour gérer les marges
+/// du titre et du blockquote.
+///
+/// @group layout/frame
+/// @example html
+/// <section class="title-quote">
+///   <h2>Titre</h2>
+///   <blockquote>Citation</blockquote>
+/// </section>
+.title-quote {
+  & h2, h3 {
+    margin-bottom: 0;
+  }
+
+  & blockquote {
+    margin-top: 0.5rem;
+  }
+}
+
+/// Modifie le conteneur pour accueillir des cartes.
+/// La classe `.card-list` permet d'ajuster l'espacement entre les cartes en appliquant
+/// un `gap` de 2rem entre chaque carte.
+///
+/// @group layout/frame
+/// @example html
+/// <div class="card-list">
+///   <div class="card">Carte 1</div>
+///   <div class="card">Carte 2</div>
+/// </div>
+.card-list {
+  gap: 2rem;
+  flex: 1;
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+
+/// Centre du texte dans une frame (et/ou avec son image).
+/// La classe `.link` applique une décoration de texte soulignée sur un lien.
+///
+/// @group layout/frame
+/// @example html
+/// <span class="link">
+///   <a href="#">Lien</a>
+///   <img src="image.png" alt="image">
+/// </span>
+.link {
+  text-decoration: underline;
+}
+
+/// Frame contenant les détails d'un brocanteur ou d'un objet.
+/// Cette classe organise la disposition de la frame en deux parties : une image à gauche
+/// et un texte avec des boutons à droite. La section contenant le texte et les boutons
+/// occupe 70% de l'espace disponible.
+///
+/// @group layout/frame
+/// @example html
+/// <div class="detail">
+///   <img src="image.jpg" alt="Image d'objet">
+///   <div class="elements">Détails et boutons</div>
+/// </div>
+.detail {
+  gap: 1rem;
+  & * {
+    text-align: left;
+  }
+
+  & .elements,
+  & .full-space-form {
+    flex-basis: auto;
+    gap: .5rem;
+  }
+
+  & h2 {
+    margin: .5rem 0;
+    font-weight: 1000;
+  }
+  
+  & .title-quote h3 {
+    margin: 0;
+  }
+}
+
+/// Ajoute une bordure bleue autour de l'élément avec des coins arrondis.
+/// La classe `.border` applique une bordure bleu, des coins arrondis et un padding de 1rem.
+///
+/// @group layout/frame
+/// @example html
+/// <div class="border">
+///   <p>Contenu avec bordure</p>
+/// </div>
+.border {
+  border: var.$border-card var.$primary;
+  border-radius: var.$border-rad;
+  padding: 1rem;
+  align-items: center;
+}
+
+/// Petite frame de formulaire au milieu de l'écran.
+/// La classe `.small-detail` applique une largeur définie par la variable `$small-frame`
+/// et centre le formulaire horizontalement avec `margin-left: auto` et `margin-right: auto`.
+///
+/// @group layout/frame
+/// @example html
+/// <form class="small-detail">
+///   <input type="text" placeholder="Texte">
+///   <button type="submit">Envoyer</button>
+/// </form>
+.small-detail {
+  width: var.$small-frame;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/// Boîte contenant plusieurs boutons disposés horizontalement.
+/// La classe `.mult-btn` applique un espacement de 0.5rem entre les boutons enfants.
+///
+/// @group layout/frame
+/// @example html
+/// <div class="mult-btn">
+///   <button>Button 1</button>
+///   <button>Button 2</button>
+/// </div>
+.mult-btn > * {
+  margin-right: 0.5rem;
+}
+
+/// Permet d'afficher des boutons sur toute la largeur de la frame.
+/// La classe `.full-space-btn` fait en sorte que les boutons enfants prennent
+/// toute la largeur disponible dans leur conteneur.
+///
+/// @group layout/frame
+/// @example html
+/// <div class="full-space-btn">
+///   <button>Button large</button>
+/// </div>
+.full-space-btn {
+  display: flex;
+  & > * {
+    flex-basis: 100%;
+  }
+}
+
+/// Affiche des boutons de formulaire avec un espacement entre eux.
+/// La classe `.form-btn` applique un `justify-content: space-between` pour
+/// espacer les boutons de manière égale dans leur conteneur.
+///
+/// @group layout/frame
+/// @example html
+/// <div class="form-btn">
+///   <button>Annuler</button>
+///   <button>Envoyer</button>
+/// </div>
+.form-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+/// Affiche des boutons de cartes avec Flexbox.
+/// La classe `.card-btn` applique un `flex-wrap: wrap` pour
+/// un retour à la ligne des boutons.
+///
+/// @group layout/frame
+/// @example html
+/// <div class="card-btn">
+///   <button>Attribuer</button>
+///   <button>Détail</button>
+/// </div>
+.card-btn {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/// Affiche des informations dans une frame avec des éléments séparés par des bordures.
+/// La classe `.info` applique une marge interne (padding-inline) de 1rem aux enfants.
+/// Elle ajoute également une bordure à droite de chaque élément sauf le dernier.
+///
+/// @group layout/frame
+/// @example html
+/// <div class="info">
+///   <div>Info 1</div>
+///   <div>Info 2</div>
+/// </div>
+.info {
+  & span {
+    position: relative;
+    z-index: 0;
+  }
+  & span::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 2px;
+    background-color: var.$primary;
+    transition: var.$trans;
+  }
+  & .linked:hover::after {
+    width: 80%;
+  }
+}
+
+/// Permet de créer un espace pour les infos de détails.
+/// La classe ajoute une marge de 1rem et un padding lattéral de 1rem à ses enfants.
+/// 
+/// @group layout/frame
+/// @example html
+/// <div class="info info-spacer">
+///   <div>Info 1</div>
+///   <div>Info 2</div>
+/// </div>
+.info-spacer {
+  margin: 1rem;
+  & > * {
+    padding-inline: 1rem;
+  }
+}
+
+.outline-accent:focus {
+  outline-color: var.$accent;
+}
+
+/// Styles pour écrans avec une largeur maximale de 800px.
+/// Ces styles adaptent la disposition du header et de ses éléments pour qu'ils s'affichent
+/// correctement sur des petits écrans.
+///
+/// @group layout/frame
+@media screen and (max-width: 800px) {
+  .center {
+    margin-left: var.$width-margin-res;
+    margin-right: var.$width-margin-res;
+  }
+
+  .detail {
+    flex-direction: column;
+    & .detail-img {
+      width: 70%;
+      aspect-ratio: 1 / 1;
+    }
+    & > * {
+      width: 100%;
+    }
+    & > *:not(:last-child) {
+      border-right: none;
+    }
+    & * {
+      text-align: center;
+      justify-content: center;
+    }
+
+    & blockquote {
+      margin: 0;
+    }
+  }
+
+  .elements {
+    flex-basis: 100%;
+  }
+
+  .card-list {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}

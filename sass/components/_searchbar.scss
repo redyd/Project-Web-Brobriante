@@ -1,0 +1,62 @@
+@use "../base/variables" as var;
+
+/// Applique le style aux boutons contenant des images.
+/// La classe `.btn-img` crée un bouton avec un fond transparent, sans bordure,
+/// et un curseur en forme de main pour signaler qu'il est cliquable.
+///
+/// @group components/button
+/// @example html
+/// <button class="btn-img">
+///   <img src="icon.png" alt="Icône">
+/// </button>
+.btn-img {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: var.$trans;
+  &:hover {
+    rotate: 20deg;
+  }
+}
+
+/// Applique le style pour une barre de recherche comprenant un `input` et un `select`.
+/// La classe `.search-bar` dispose de bordures, d'un espacement interne défini et utilise Flexbox
+/// pour aligner les éléments en ligne. L'élément `input` à l'intérieur de `.search-bar` occupe toute
+/// la largeur disponible et n'a pas de bordure ou de contour.
+///
+/// @group components/searchbar
+/// @example html
+/// <div class="search-bar">
+///    <input type="text" placeholder="Rechercher ici...">
+///    <select name="filter" id="filter">
+///        <option value="">☰ Filtre</option>
+///        <option value="1">option</option>
+///        <option value="2">option</option>
+///        <option value="3">option</option>
+///        <option value="4">option</option>
+///    </select>
+///</div>
+/// @group components/searchbar
+.search-bar {
+  border: var.$border-search var.$dark;
+  display: flex;
+  align-items: center;
+  flex-basis: 70%;
+  padding: 0.2rem 0.5rem;
+
+  & input {
+    flex-basis: 100%;
+    padding: 0.1rem;
+    outline: none;
+    border: none;
+  }
+}
+
+@media screen and (max-width: 472px) {
+  .search-bar {
+    flex-direction: column;
+    & input {
+      padding: 0.7rem;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+<?php
+
+use database\SellerRepository;
+
+require __DIR__ . '/php/input/OptionInput.php';
+require __DIR__ . '/php/database/SellerRepository.php';
+require __DIR__ . '/inc/session.inc.php';
+
+/* Variables du code HTML */
+$title = "Brocanteurs";
+
+/* Variables PHP */
+$message = "";
+$data = new SellerRepository();
+$zones = $data->getSellersByZone($message);
+
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<?php require "inc/head.inc.php" ?>
+
+<body>
+
+<?php require "inc/header.inc.php" ?>
+
+<main>
+    <h1 class="large-txt"><span class="underline">Nos brocanteurs</span></h1>
+    <?php if (is_array($zones) && empty($message) && !empty($zones)): ?>
+        <?php foreach ($zones as $zone => $data): ?>
+            <section class="space">
+                <h2 class="medium-txt spacer"><?= $zone ?></h2>
+                <div class="card-list space flex-stretch flex-wrap">
+                    <?php
+                    foreach ($data as $brocanteur) {
+                        $brocanteur->createCard();
+                    }
+                    ?>
+                </div>
+            </section>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p class="basic-txt space">Il n'y a aucun brocanteur pour l'instant...</p>
+    <?php endif; ?>
+</main>
+
+<?php require "inc/footer.inc.php"; ?>
+</body>
+
+</html>

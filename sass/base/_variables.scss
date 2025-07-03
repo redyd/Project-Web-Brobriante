@@ -1,0 +1,143 @@
+/// Police d'écriture
+/// @group base/variables
+@font-face {
+  font-family: Poppins;
+  src: url(../font/font.ttf) format(truetype);
+  font-weight: normal;
+  font-style: normal;
+}
+
+/// Définis la police d'écriture
+/// @group base/variables
+$font-type: Poppins;
+
+//Espacement-------------------------------------------------------------------------------
+
+/// Définis la taille des marges à appliquer pour la class .center
+/// @group base/variables
+$width-margin: 0 10%;
+
+/// Définis la taille des marges à appliquer pour la classe .small
+/// @group base/variables
+$small-frame: 20rem;
+
+/// Définis la taille des marges à appliquer pour la class .center dans le cas du responsive
+/// @group base/variables
+$width-margin-res: 5%;
+
+/// Définis la taille d'espacement entres les différentes sections de la page
+/// @group base/variables
+$space-btw-sect: 2rem;
+
+/// Définis la taille des marges verticales pour la class .compact
+/// @group base/variables
+$compact-margin: .2rem;
+
+//Taille des polices-------------------------------------------------------------------------------
+
+/// Définis la taille de police de la class .small-txt
+/// @group base/variables
+$font-size-text: 1rem;
+
+/// Définis la taille de police de la class .medium-txt
+/// @group base/variables
+$font-size-medium: 1.5rem;
+
+/// Définis la taille de police de la class .large-txt
+/// @group base/variables
+$font-size-large: 1.75rem;
+
+//Taille des images-------------------------------------------------------------------------------
+
+/// Définis la taille des icones.
+/// Exemple: logo du site, icone de recherche, ...
+/// @group base/variables
+$img-icon: 2rem;
+
+/// Définis la taille des images dans les cartes
+/// @group base/variables
+$img-card: 10rem;
+
+/// Définis la taille des images dans les cartes lors du responsive
+/// @group base/variables
+$img-card-res: 7.5rem;
+
+/// Définis la taille des images dans le menu de détail
+/// @group base/variables
+$img-card-detail: 20rem;
+
+/// Définis la taille des petites images
+/// @group base/variables
+$small-img: 1.6rem;
+
+//Les cartes-------------------------------------------------------------------------------
+
+/// Définis l'espacement entre les cartes
+/// @group base/variables
+$card-gap: 2rem;
+
+/// Définis la marge dans la carte comprenant l'image et son texte
+/// @group base/variables
+$fig-margin: 1.2rem;
+
+//Les bordures-------------------------------------------------------------------------------
+
+/// Définis la taille du border radius
+/// @group base/variables
+$border-rad: 1rem;
+
+/// Définis la taille des bordures des cartes
+/// @group base/variables
+$border-card: 2px solid;
+
+/// Définis la taille des bordures de la barre de recherche
+/// @group base/variables
+$border-search: 1px solid;
+
+//Les tansitions-------------------------------------------------------------------------------
+
+/// Définis la transitions au survol d'un bouton
+/// @group base/variables
+$trans: ease .3s;
+
+//Les couleurs-------------------------------------------------------------------------------
+
+/// Couleur claire de base
+/// @group base/variables
+$clear: #fff;
+
+/// Couleur foncée de base
+/// @group base/variables
+$dark: #000;
+
+/// Couleur grise
+/// @group base/variables
+$light-grey: #e8e9ea;
+
+/// Couleur de contraste
+/// @group base/variables
+$primary: #556B2F;
+
+/// Couleur d'accent
+/// @group base/variables
+$accent: #B4C424;
+
+//Les soulignements-------------------------------------------------------------------------------
+
+/// Soulignement classique
+/// @group base/variables
+$classic-underline: underline;
+
+/// Soulignement accentué
+/// @group base/variables
+$accent-underline: underline 2px $accent;
+
+//Les formulaires-------------------------------------------------------------------------------
+
+/// Taille des textarea présents dans les formulaires
+/// @group base/variables
+$size-textarea: 5rem;
+
+/// Taille du textarea présents dans le formulaire de contact
+/// @group base/variables
+$large-textarea: 20rem;

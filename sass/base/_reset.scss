@@ -1,0 +1,37 @@
+@use "../base/variables" as var;
+
+/// Réinitialise les marges par défaut du `body`.
+/// Configure le `body` en flexbox avec une direction verticale.
+/// Garantit que le conteneur occupe toute la hauteur de la fenêtre grâce à `min-height: 100vh`.
+///
+/// @group base/reset
+/// @example html
+/// <body>
+///   <header>Header</header>
+///   <main>Contenu principal</main>
+///   <footer>Pied de page</footer>
+/// </body>
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  & main {
+    flex: 1;
+  }
+}
+
+/// Définit le comportement de `box-sizing` sur tous les éléments et leurs pseudo-éléments.
+/// Applique également une police globale définie par la variable `$font-type`.
+///
+/// @group base/reset
+* {
+  box-sizing: border-box;
+  font-family: var.$font-type;
+}
+
+::selection {
+  background-color: var.$accent;
+  color: #FFF;
+}

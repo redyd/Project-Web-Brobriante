@@ -1,0 +1,66 @@
+@use "../base/variables" as var;
+
+/// Applique les styles par défaut à une carte.
+/// Cette classe stylise une carte avec un fond gris clair, des bordures arrondies, 
+/// et une transition fluide au survol. Elle inclut également des styles spécifiques 
+/// pour les images contenues dans la carte.
+///
+/// @group components/card
+/// @example html
+/// <article class="card">
+///   <div class="fig">
+///     <img src="assets/images/icon/image.svg" alt="image" class="img-card">
+///     <h3 class="small-txt">Objet de carte</h3>
+///   </div>
+///   <a href="../detailObjet.php" class="full-btn blue-btn small-txt">Détail</a>
+/// </article>
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var.$light-grey;
+  border-radius: var.$border-rad;
+  border: var.$border-card var.$light-grey;
+  transition: var.$trans;
+  padding: var.$fig-margin;
+  max-width: min-content;
+
+  /// Effet de survol :
+  /// Change la couleur de la bordure au survol de la carte.
+  &:hover {
+    border: var.$border-card var.$accent;
+  }
+
+  /// Styles appliqués aux images dans la carte.
+  /// Ajoute des bordures arrondies et une ombre légère.
+  & img {
+    border-radius: var.$border-rad;
+    box-shadow: 0 4px 8px #d1d5db;
+  }
+
+  & .card-btn, > .full-btn {
+    margin-top: auto;
+  }
+
+  & figure {
+    margin: 0;
+  }
+
+  & figcaption {
+    margin: .7rem 0;
+  }
+}
+
+figure {
+  margin: 0;
+}
+
+/// Média query pour les écrans de moins de 800px.
+/// Adapte la largeur des images dans la carte.
+///
+/// @group components/card
+@media screen and (max-width: 800px) {
+  .card img {
+    width: var.$img-card-res;
+    height: var.$img-card-res;
+  }
+}

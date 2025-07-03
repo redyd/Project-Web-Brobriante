@@ -1,0 +1,64 @@
+@use "../base/variables" as var;
+
+/// Définit la taille des icônes.
+/// La classe `.icon` applique une largeur spécifique aux icônes en fonction 
+/// de la variable `$img-icon`.
+///
+/// @group components/images
+/// @example html
+/// <img src="icone.png" alt="Icône" class="icon">
+.icon {
+  width: var.$img-icon;
+}
+
+/// Définit la taille des petites icones.
+/// La classe `.small-icon` applique une largeur spécifiques aux icônes en fonction
+/// de la variable `$small-img`.
+/// 
+/// @group components/images
+/// @example html
+/// <img src="icone.png" alt="Icône" class="small-icon">
+.small-icon {
+  width: var.$small-img;
+}
+
+/// Définit la taille des images utilisées dans les cartes.
+/// La classe `.img-card` applique une largeur spécifique aux images des cartes, 
+/// basée sur la variable `$img-card`.
+///
+/// @group components/images
+/// @example html
+/// <div class="card">
+///   <img src="image.jpg" alt="Image de carte" class="img-card">
+/// </div>
+.img-card {
+  width: var.$img-card;
+  height: var.$img-card;
+  object-fit: cover;
+}
+
+/// Définit la taille des images dans les menus de détail.
+/// La classe `.detail-img` spécifie que l'image occupe 30% de la largeur disponible.
+/// Idéal pour des dispositions flexibles.
+///
+/// @group components/images
+/// @example html
+/// <div class="detail">
+///   <img src="detail.jpg" alt="Détail" class="detail-img">
+///   <div class="details">
+///     <p>...</p>
+///   </div>
+/// </div>
+.detail-img {
+  width: 35%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var.$border-rad;
+}
+
+.profil-picture {
+  width: var.$img-icon;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}

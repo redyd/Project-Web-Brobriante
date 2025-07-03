@@ -1,0 +1,91 @@
+@use "../base/variables" as var;
+
+/// Mise en page d'un formulaire prenant toute la largeur disponible.
+/// La classe `.full-space-form` crée un conteneur flexible pour les champs de formulaire.
+/// Chaque élément enfant prend 100% de la largeur, et les lignes sont espacées.
+///
+/// @group components/forms
+/// @example html
+/// <form action="#" method="post" class="space small-detail full-space-form border">
+///   <label class="lab-col" for="email">
+///       Adresse mail*
+///       <input type="text" id="email" name="email" placeholder="Ex: p.jeanne@gmail.com" required>
+///   </label>
+///   <label class="lab-col" for="password">
+///       Mot de passe*
+///       <input type="password" id="password" name="password" required>
+///   </label>
+/// </form>
+.full-space-form {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: .5rem;
+    & > * {
+        flex-basis: 100%;
+    }
+}
+
+/// Conteneur de label et champs alignés en colonne.
+/// La classe `.lab-col` aligne les labels et champs associés verticalement.
+///
+/// @group components/forms
+/// @example html
+/// <div class="lab-col">
+///   <label for="name">Nom</label>
+///   <input id="name" type="text">
+/// </div>
+.lab-col {
+    display: flex;
+    flex-direction: column;
+}
+
+/// Conteneur de label et champs alignés en ligne.
+/// La classe `.lab-row` aligne les labels et champs associés horizontalement 
+/// avec un petit espace entre eux.
+///
+/// @group components/forms
+/// @example html
+/// <div class="lab-row">
+///   <label for="visible">Visible ?</label>
+///   <input id="visible" type="checkbox">
+/// </div>
+.lab-row {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+/// Champ de texte ajustable verticalement.
+/// La classe `.textarea-form` permet de redimensionner un champ de texte
+/// uniquement verticalement, avec une hauteur minimale définie.
+///
+/// @group components/forms
+/// @example html
+/// <textarea class="textarea-form"></textarea>
+.textarea-form {
+  resize: vertical;
+  min-height: var.$size-textarea;
+  max-height: 20rem;
+}
+
+/// Champ de texte plus grand.
+/// La classe `.large-textarea` applique une hauteur minimale plus importante
+/// pour les champs de texte nécessitant plus d'espace.
+///
+/// @group components/forms
+/// @example html
+/// <textarea class="large-textarea"></textarea>
+.large-textarea {
+  min-height: var.$large-textarea;
+  resize: none;
+}
+
+.info-field {
+  display: none;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}

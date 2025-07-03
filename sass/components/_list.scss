@@ -1,0 +1,33 @@
+/// Applique les styles pour une liste horizontale.
+/// La classe `.h-list` transforme une liste en une disposition horizontale grâce à Flexbox.
+/// Les éléments de la liste sont espacés par une marge définie et alignés verticalement.
+///
+/// @group components/list
+/// @example html
+/// <ul class="h-list">
+///   <li>Élément 1</li>
+///   <li>Élément 2</li>
+///   <li>Élément 3</li>
+/// </ul>
+.h-list {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/// Neutralise les styles par défaut d'une liste.
+/// La classe `.clear-list` supprime les puces et le padding natifs d'une liste,
+/// permettant de personnaliser complètement son apparence.
+/// La classe `.h-list` hérite également de ces styles pour uniformiser les listes horizontales.
+///
+/// @group base/mixins
+/// @example html
+/// <ul class="clear-list">
+///   <li>Élément 1</li>
+///   <li>Élément 2</li>
+///   <li>Élément 3</li>
+/// </ul>
+.clear-list, .h-list {
+    list-style-type: none;
+    padding: 0;
+}

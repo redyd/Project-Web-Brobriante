@@ -1,0 +1,114 @@
+@use "../base/variables" as var;
+
+/// Ajoute des marges et un fond coloré.
+/// La classe `.spacer` sert à insérer des marges horizontales (10%)
+/// avec une couleur de fond bleue et un texte aligné à gauche.
+///
+/// @group components/div
+/// @example html
+/// <h2 class="medium-txt spacer">Zone A</h2>
+.spacer,
+.spacer-box {
+  background-color: var.$primary;
+  color: var.$clear;
+  text-align: left;
+  padding: 0.2rem 10%;
+}
+
+/// Crée une boîte flexible avec des espaces entre les éléments.
+/// La classe `.spacer-box` est une version améliorée de `.spacer`
+/// permettant d'agencer plusieurs éléments en les espaçant.
+///
+/// @group components/div
+/// @example html
+/// <div class="spacer-box clear-color space">
+///   <h2 class="medium-txt">Mes objets</h2>
+///   <a href="gererObjet.php" class="blue-btn">Ajouter un objet +</a>
+/// </div>
+.spacer-box {
+  display: flex;
+  align-items: center;
+
+  & > * {
+    margin: 0.2rem 1rem;
+  }
+}
+
+/// Crée une zone divisée en plusieurs sections.
+/// La classe `.strip` est utilisée pour afficher trois informations alignées
+/// horizontalement avec une bordure entre elles.
+/// Idéal pour un footer ou une barre d'information.
+///
+/// @group components/div
+/// @example html
+/// <div class="clear-color strip space">
+///   <section>
+///       <h3 class="medium-txt">Quand ?</h3>
+///       <p>Tous les jours de la semaine, de 8 à 17 heures</p>
+///   </section>
+///   <section>
+///       <h3 class="medium-txt">Où ?</h3>
+///       <p>Rue de la Bonnevente 4020, Liège - Belgique</p>
+///   </section>
+///   <section>
+///       <h3 class="medium-txt">Combien ?</h3>
+///       <p>Le prix d'inscription est de 10€</p>
+///   </section>
+/// </div>
+.strip, .strip-colored {
+  display: flex;
+  text-align: center;
+
+  /// Style des sections internes :
+  /// Chaque section occupe la même largeur et est séparée par une bordure.
+  & > section {
+    align-items: flex-start;
+    flex-basis: 100%;
+    margin: 1rem 0;
+    border-right: var.$border-card var.$clear;
+
+    /// Retire la bordure du dernier élément.
+    &:last-child {
+      border: 0;
+    }
+  }
+}
+
+.strip-colored {
+  background-color: var.$primary;
+}
+
+.success-box {
+  background-color: rgba(144, 238, 144, 0.6)  ;
+  border: 2px solid rgb(34, 139, 34);
+  padding: 10px;
+  border-radius: 5px;
+  color: darkgreen;
+}
+
+.fail-box {
+  background-color: rgba(240, 128, 128, 0.6);
+  border: 2px solid rgb(178, 34, 34);
+  padding: 10px;
+  border-radius: 5px;
+  color: darkred;
+}
+
+
+
+/// Ajuste la disposition de `.strip` sur les petits écrans.
+/// Passe les sections en colonne et adapte les bordures.
+///
+/// @group components/div
+@media screen and (max-width: 900px) {
+  .strip, .strip-colored {
+    flex-direction: column;
+
+    & > section {
+      border-right: 0;
+      border-bottom: 2px solid var.$clear;
+      margin: 0 1rem;
+      padding: 1rem 0;
+    }
+  }
+}

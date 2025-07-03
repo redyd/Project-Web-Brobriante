@@ -1,0 +1,114 @@
+@use '../base/variables' as var;
+
+/// Applique les styles de base au header.
+/// Le `header` possède un fond gris clair, un padding latéral de 1rem et un espacement
+/// (`gap`) de 1rem entre ses éléments internes.
+///
+/// @group layout/header
+/// @example html
+/// <header>
+///   <nav>
+///     <ul>
+///         ...
+///     </ul>
+///   </nav>
+///   <nav>
+///     <ul>
+///         ...
+///     </ul>
+///   </nav>
+/// </header>
+header {
+    z-index: 1;
+    background: rgba(232, 233, 234, .6);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.8px);
+    -webkit-backdrop-filter: blur(6.8px);
+    border: 1px solid rgba(232, 233, 234, 0.50);
+    padding: 0 1rem;
+    gap: 1rem;
+}
+
+/// Positionne les informations de connexion à droite du header.
+/// La dernière navigation (`nav:last-of-type`) est poussée à l'extrémité droite
+/// grâce à une marge automatique sur la gauche.
+///
+/// @group layout/header
+/// @example html
+/// <header>
+///   <nav>Logo</nav>
+///   <nav>Pages</nav>
+///   <nav>Connexion</nav>
+/// </header>
+header nav:last-of-type {
+    margin-left: auto;
+}
+
+/// Souligne l'onglet actuel pour indiquer la page active.
+/// La classe `.current` applique une décoration définie par la variable `$accent-underline`.
+///
+/// @group layout/header
+/// @example html
+/// <nav>
+///   <a href="#" class="current">Page active</a>
+/// </nav>
+.current .linked::after {
+    width: 100%;
+    background-color: var.$accent;
+}
+
+header p {
+    margin: 0;
+}
+
+header li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: nowrap;
+}
+
+/// Styles pour écrans avec une largeur maximale de 800px.
+/// Ces styles adaptent la disposition du header et de ses éléments pour qu'ils s'affichent
+/// correctement sur des petits écrans.
+///
+/// @group layout/header
+@media screen and (max-width: 800px) {
+    header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    header nav {
+        text-align: left;
+    }
+
+    header nav:nth-of-type(2) {
+        display: flex;
+        align-self: center;
+        order: 3;
+        flex-basis: 100%;
+        justify-content: center;
+    }
+
+    header nav:nth-of-type(2) ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header nav:last-of-type {
+        margin-left: 0;
+    }
+}
+
+@media screen and (min-width: 801px) {
+    header {
+        position: fixed;
+        width: 100%;
+    }
+    main {
+        margin-top: 79px;
+    }
+}

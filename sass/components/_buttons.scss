@@ -1,0 +1,97 @@
+@use "../base/variables" as var;
+
+/// Base de tous les boutons.
+/// Définit les styles communs pour différents types de boutons, 
+/// tels que `.button`, `.blue-btn`, et `.grey-btn`.
+///
+/// @group components/buttons
+/// @example html
+/// <a class="button">Bouton</a>
+/// <a class="blue-btn">Bouton bleu</a>
+/// <a class="grey-btn">Bouton gris</a>
+.button, .blue-btn, .grey-btn, .noclick-btn {
+  border-radius: var.$border-rad;
+  padding: 0.3rem 1rem;
+  transition: var.$trans;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0.2rem;
+}
+
+/// Bouton bleu.
+/// Bouton stylé avec un fond bleu et des bordures bleues.
+/// Passe à un fond gris clair au survol.
+///
+/// @group components/buttons
+/// @example html
+/// <a class="blue-btn">Bouton bleu</a>
+.blue-btn {
+  background-color: var.$primary;
+  border: var.$border-card var.$primary;
+  color: var.$clear;
+
+  &:hover {
+    background-color: var.$light-grey;
+    color: var.$primary;
+    border: var.$border-card var.$primary;
+    cursor: pointer;
+  }
+}
+
+/// Bouton gris.
+/// Bouton stylé avec un fond gris clair et des bordures grises.
+/// Passe à un fond bleu au survol.
+///
+/// @group components/buttons
+/// @example html
+/// <a class="grey-btn">Bouton gris</a>
+.grey-btn {
+  background-color: var.$light-grey;
+  border: var.$border-card var.$primary;
+  color: var.$primary;
+
+  &:hover {
+    background-color: var.$primary;
+    color: var.$light-grey;
+    border: var.$border-card var.$primary;
+    cursor: pointer;
+  }
+}
+
+.noclick-btn {
+  background-color: var.$light-grey;
+  border: var.$border-card var.$dark;
+  color: var.$dark;
+
+  &:hover {
+    cursor: not-allowed;
+  }
+}
+
+/// Bouton pleine largeur.
+/// Utilisé pour créer un bouton prenant toute la largeur de son conteneur.
+/// Souvent utilisé dans des cartes ou des sections.
+///
+/// @group components/buttons
+/// @example html
+/// <button class="full-btn">Bouton plein</button>
+.full-btn {
+  width: 100%;
+  text-align: center;
+}
+
+/// Bouton de retour.
+/// Classe à appliquer sur un élément `<a>` contenant une image de flèche.
+/// Idéal pour les actions de navigation "retour en arrière".
+///
+/// @group components/buttons
+/// @example html
+/// <a class="back"><img src="back-arrow.svg" alt="Retour"></a>
+.back {
+  transition: transform var.$trans;
+
+  &:hover {
+    cursor: pointer;
+    transform: translateX(-5px);
+  }
+}

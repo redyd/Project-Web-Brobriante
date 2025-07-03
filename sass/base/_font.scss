@@ -1,0 +1,80 @@
+@use "variables" as var;
+
+/// Applique un effet de gros titre.
+/// A appliquer sur un titre de type 'h1/h2'
+/// @group base/font
+.large-txt {
+  text-align: center;
+  color: var.$dark;
+  font-size: var.$font-size-large;
+}
+
+.underline {
+  position: relative;
+}
+
+.underline::after {
+  position: absolute;
+  content: "";
+  background-color: var.$accent;
+  left: 0;
+  bottom: 5px;
+  width: 100%;
+  height: 30%;
+  z-index: -1;
+}
+
+/// Applique un effet titre moyen / sous-titre.
+/// A appliquer sur un titre de type 'h2/h3'
+/// @group base/font
+.medium-txt {
+  color: var.$primary;
+  font-size: var.$font-size-medium;
+}
+
+/// Applique un effet de texte important (coloré)
+/// A appliquer sur du texte de type 'h3/h4/p/span/...'
+/// @group base/font
+.small-txt {
+  color: var.$primary;
+  font-size: var.$font-size-text;
+}
+
+.accent-txt {
+  color: var.$accent;
+  font-weight: 700;
+}
+
+.error-txt {
+  font-size: .8rem;
+  color: red;
+}
+
+/// Texte basic noir
+/// @group base/font
+.basic-txt {
+  color: var.$dark;
+  font-size: var.$font-size-text;
+}
+
+/// Applique une couleur claire à tous les éléments présents dans la frame
+/// @group base/font
+.clear-color * {
+  color: var.$clear;
+}
+
+/// Centre les textes
+/// @group base/font
+.small-txt,
+.medium-txt,
+.large-txt,
+.basic-txt {
+  text-align: center;
+  text-decoration: none;
+}
+
+/// Permet de réduire les marges
+/// @group base/font
+.compact {
+  margin: var.$compact-margin 0;
+}

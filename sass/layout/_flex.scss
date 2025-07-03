@@ -1,0 +1,50 @@
+/// Centre un élément à la fois horizontalement et verticalement en utilisant Flexbox.
+/// La classe `.flex-center` applique les propriétés nécessaires pour centrer un élément dans son conteneur
+/// sur les axes horizontaux et verticaux. Cette méthode est très utilisée pour créer des mises en page
+/// simples et réactives avec Flexbox.
+///
+/// @group layout/flex
+/// @example html
+/// <div class="flex-center">
+///   <p>Contenu centré</p>
+/// </div>
+.flex-center {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+/// Permet à un conteneur Flexbox de gérer des éléments qui débordent sur plusieurs lignes.
+/// La classe `.flex-wrap` applique la propriété `flex-wrap` avec la valeur `wrap`
+/// pour permettre aux éléments enfants de passer à la ligne suivante si nécessaire.
+///
+/// @group layout/flex
+/// @example html
+/// <div class="flex-wrap">
+///   <div>Élément 1</div>
+///   <div>Élément 2</div>
+///   <div>Élément 3</div>
+/// </div>
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/// Permet à un conteneur Flexbox d'étirer ses items en hauteur pour que chaque item
+/// possède la même hauteur.
+///
+/// @group layout/flex
+/// @example html
+/// <div class="flex-stretch">
+///     <article class="card"></article>
+///     <article class="card"></article>
+///     <article class="card"></article>
+///     <article class="card"></article>
+/// </div>
+.flex-stretch {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    text-align: center;
+}
